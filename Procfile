@@ -1,1 +1,1 @@
-web: gunicorn dongbangproject.wsgi --log-file -
+web: gunicorn dongbang.wsgi --log-file -
