@@ -1,0 +1,1 @@
+web: gunicorn dongbangproject.wsgi --log-file -
