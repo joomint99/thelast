@@ -1,0 +1,65 @@
+<head>
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>성대 멋사 Board</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/board.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Jua|Nanum+Myeongjo|Nanum+Pen+Script" rel="stylesheet">
+</head>
+
+
+<div class='introduction'>
+    <h1 id='title'>동방 방명록</h1>
+    <br>
+    <form action="{% url 'submit' %}">
+        메세지 : <textarea cols="30" rows="1" name="message"></textarea>
+        <br>
+        <br>
+        작성자 : <textarea cols="20" rows="1" name="name"></textarea>
+        <br>
+        <br>
+        쓴 날짜 : <input type="date" name="date">
+        <br>
+        <br>
+        <input type="submit" id='mybtn' value="다 썼다!">
+        <br>
+        <br>
+        <br>
+        <br>
+
+    <table id='myt'>
+        <tr>
+            <td>작성자</td>
+            <td>메세지</td>
+            <td>쓴 날짜</td>
+        </tr>
+    </table>
+
+    {% for kk in saves.all %}
+    
+    <table border = '0' id='myt'>
+
+        <tr>
+            <td>{{kk.name}}</td>
+            <td>{{kk.message}}</td>
+            <td>{{kk.date}}</td>
+        </tr>
+    </table>
+    </form>
+    {% endfor %}
+    <br>
+    <br>
+    <form action="{% url 'delete' %}">
+        <input type="submit" id='mybtn' value="모두 지운다!">
+
+
+    <Br>
+    <br>
+    <br>
+    <br>
+    <p id=li>LIKELION SKKU</p>
+</div>
